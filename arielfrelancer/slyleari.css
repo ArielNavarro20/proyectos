@@ -1,0 +1,247 @@
+
+:root{
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #FFC107;
+    --secundario:#0097A7;
+    --gris: #757575;
+
+}
+
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box; /*box model*/
+    
+}
+*, *::before, *::after { /*boxmodel del de google para regular las imagenes de los px q sean los q quiero*/
+    box-sizing: inherit;
+}
+body{
+    font-size: 16px;/*1rem=10px*/
+    background-image: linear-gradient(to top, #d6f0dd 0%, var(--blanco) 90%); /*hacerle el fondo como q se vaya poniendo blanco*/
+}
+/* puse en orden los titulos de la pagina para modificarlos */
+h1 {
+    text-align: center;
+    font-size: 3.8rem;
+}
+
+h2{
+font-size: 2.8rem;
+}
+
+h3{
+font-size: 1.8rem;
+}
+h1,h2,h3 {
+    text-align: center;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primario);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor{   /* una clase p[ara centrar el contenido, puedo reusarla para varias etiquetas de html y me centrara todo*/
+    max-width: 120rem;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    /* o asi como reloj margin: 0 auto 0 auto;*/
+}
+
+.boton{  /*boton para dos botones de la pagina*/
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 2rem, 3rem, 2rem, 3rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 50%;
+    text-align: center;
+    border: none;
+
+
+} /* media queri para q el boton se achique en pantalla pequeña*/
+@media (min-width: 700px) {
+    .boton{
+        width: auto;
+    }
+} /* hover para q cambie de color al pasar el cursor sobre el*/
+.boton:hover {
+    cursor: pointer;
+}
+
+.sombra { /* ponerle sombra al boxmodel el codigo se saco de google*/
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+    
+}
+/* aca para trabajar con la barra de la navegacion principal */
+.navegacion-principal {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (min-width: 400px) {
+    .navegacion-principal {
+        flex-direction: row;
+    }
+}
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+.navegacion-principal a { /* darle color blanco a las letras de los enlaces. mas negrita dimencion etc*/
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover { /*para q al pasar el cursor cambie a color primario y letras oscuras*/
+    background-color: var(--primario);
+    color: var(--oscuro);
+    
+
+}
+/*para trabajar con la imagen de fondo */
+.sshot {
+    background-image: url(../arielfrelancer/sshot-141.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin: bottom 2rem; 
+}
+.contenido-sshot {
+    position:absolute;
+    background-color: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+.contenido-sshot h2, p { /* podria haber usado .contenido-sshot p {} pero para ahorrar use ,*/
+    color: var(--blanco);
+}
+/*para usar la ubicacion tenerla mejor posicionada*/
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+
+}
+
+
+    
+
+
+@media (min-width: 768px) {  /* pongo un media para q sobre los 768 se pongan en tres columnas uso grid css*/
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1rem; /* separacion entre las columnas se usa column-grap*/
+        
+    }
+}
+.servicio {          /* alineando los iconos se hace aca desde el padre*/
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+
+.servicio h3{   /* para los titulos de los servicios, diseño web, app web y base de datos*/
+color: var(--secundario);
+font-weight: normal;
+}
+
+.servicio p {            /* para trabajar con los parrafos de los iconos que quede la letra mas grande etc color*/
+    line-height: 2;  /* interlineado de parrafos*/
+    text-align: center;
+    color: var(--gris);
+
+}
+
+.servicio .iconos{   /* para trabajar con los iconos el fondo redondo amarillo y centrar elementos*/
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius:50% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*formulario*/
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%);
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+
+
+}
+.formulario fieldset {
+    border: none;
+}
+.formulario legend { /* editando la letra y margenes*/
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+@media (min-width: 768px) { /*para pantallas chicas q se ponga en columna*/
+.contenedor-campos {
+display: grid;
+grid-template-columns: 50% 50%;
+grid-template-rows: auto auto 20rem;
+column-gap: 1rem;
+
+}
+.campo:nth-child(3), /* nt child son sub arreglos como hay 4 campos si ponemos 1 se aplica en el campo 1 q usaremos el campo 3*/
+.campo:nth-child(4){ /* usaremos el campo 4... seria el campo 3 y 4*/
+    grid-column: 1 / 3; /* q vayan desde la columna 1 hasta la 3 asi toma todo el largo. coluymnas arriba 1 2 3 filas abajo*/
+}
+}
+.campo {
+margin-bottom: 1rem;
+}
+
+.campo label{
+color: var(--blanco);
+font-weight: bold;
+margin-bottom: .5rem;
+display: block;
+}
+.campo textarea {
+    height: 20rem;
+}
+
+.input-text {
+width: 100%;
+border: none;
+padding: 1.5rem;
+border-radius: .5rem;
+}
+
+.footer { /* centrar texto de footer*/
+    text-align: center;
+}
